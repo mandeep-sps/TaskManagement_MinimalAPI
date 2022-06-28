@@ -1,6 +1,5 @@
 
-using Microsoft.AspNetCore.ResponseCompression;
-using System.IO.Compression;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

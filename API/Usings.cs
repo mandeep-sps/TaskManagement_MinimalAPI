@@ -9,3 +9,5 @@ global using RepositoryLayer.Models;
 global using RepositoryLayer.Service;
 global using System.Configuration;
 global using System.Text;
+global using Microsoft.AspNetCore.ResponseCompression;
+global using System.IO.Compression;
