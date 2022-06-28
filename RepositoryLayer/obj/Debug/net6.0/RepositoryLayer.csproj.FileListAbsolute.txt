@@ -1,0 +1,12 @@
+D:\Repo\TicketManagementSystem\RepositoryLayer\bin\Debug\net6.0\RepositoryLayer.deps.json
+D:\Repo\TicketManagementSystem\RepositoryLayer\bin\Debug\net6.0\RepositoryLayer.dll
+D:\Repo\TicketManagementSystem\RepositoryLayer\bin\Debug\net6.0\ref\RepositoryLayer.dll
+D:\Repo\TicketManagementSystem\RepositoryLayer\bin\Debug\net6.0\RepositoryLayer.pdb
+D:\Repo\TicketManagementSystem\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.csproj.AssemblyReference.cache
+D:\Repo\TicketManagementSystem\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Repo\TicketManagementSystem\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.AssemblyInfoInputs.cache
+D:\Repo\TicketManagementSystem\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.AssemblyInfo.cs
+D:\Repo\TicketManagementSystem\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.csproj.CoreCompileInputs.cache
+D:\Repo\TicketManagementSystem\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.dll
+D:\Repo\TicketManagementSystem\RepositoryLayer\obj\Debug\net6.0\ref\RepositoryLayer.dll
+D:\Repo\TicketManagementSystem\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.pdb
