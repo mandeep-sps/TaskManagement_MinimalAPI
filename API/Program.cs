@@ -1,14 +1,3 @@
-using API.Minimal_Routes.Application_Routes;
-using BusinessLogic.Interfaces;
-using BusinessLogic.Services;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using RepositoryLayer.Interfaces;
-using RepositoryLayer.Models;
-using RepositoryLayer.Service;
-using System.Configuration;
-using System.Text;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -54,7 +43,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Demo App", Version = "v1", Description = "An ASP.NET Core Web API for." });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Task Management API's", Version = "v1", Description = "For Internal use only." });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "JWT Authorization",
@@ -113,4 +102,4 @@ app.MapProjectRoutes();
 
 app.MapApplicationUserRoutes(builder.Configuration);
 
-app.Run();
+await app.RunAsync();

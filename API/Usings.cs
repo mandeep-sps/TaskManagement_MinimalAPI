@@ -1,0 +1,11 @@
+﻿global using API.Minimal_Routes.Application_Routes;
+global using BusinessLogic.Interfaces;
+global using BusinessLogic.Services;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
+global using Microsoft.IdentityModel.Tokens;
+global using Microsoft.OpenApi.Models;
+global using RepositoryLayer.Interfaces;
+global using RepositoryLayer.Models;
+global using RepositoryLayer.Service;
+global using System.Configuration;
+global using System.Text;

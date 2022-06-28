@@ -8,7 +8,7 @@ namespace API.Minimal_Routes.Application_Routes
 {
     public static class ApplicationUserAPI
     {
-        public static void MapApplicationUserRoutes(this IEndpointRouteBuilder app, ConfigurationManager configuration)
+        public static void MapApplicationUserRoutes(this IEndpointRouteBuilder app, Microsoft.Extensions.Configuration.ConfigurationManager configuration)
         {
             // Signup Post
             app.MapPost("api/register", async ([FromServices] IUserService userService, RegisterUser registerUser ) =>
