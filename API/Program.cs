@@ -1,7 +1,15 @@
 
 
 
+using Microsoft.AspNetCore.Http.Json;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure JSON options.
+builder.Services.Configure<JsonOptions>(options =>
+{
+    options.SerializerOptions.IncludeFields = true;
+});
 
 builder.Services.AddResponseCompression(options =>
 {
@@ -106,7 +114,12 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseSwagger();
-app.UseSwaggerUI(c => c.DocumentTitle = ".Net 6 Minimal API");
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+    options.RoutePrefix = string.Empty;
+    options.DocumentTitle = ".Net 6 Minimal API";
+});
 
 app.UseAuthentication();
 app.UseAuthorization();
