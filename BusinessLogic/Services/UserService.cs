@@ -60,7 +60,7 @@ namespace BusinessLogic.Services
             try
             {
                 var checkSql = "SELECT * FROM dbo.AppUser WHERE Email=@Email and Password=@Password";
-                var data =  _repository.InvokeSingleQuery<LoginResponse>(checkSql, new { loginRequest.Email, loginRequest.Password });
+      var data =  (await _repository.InvokeQuery<LoginResponse>(checkSql, new { loginRequest.Email, loginRequest.Password })).FirstOrDefault();
                 if (data!=null)
                 {
                     LoginResponse response = new()
