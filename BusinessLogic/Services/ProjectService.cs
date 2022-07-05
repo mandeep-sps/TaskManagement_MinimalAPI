@@ -126,5 +126,53 @@ namespace BusinessLogic.Services
             }
         }
 
+        public async Task<ServiceResult<IEnumerable<ProjectResponse>>> GetManagedProjects(int Id)
+        {
+            try
+            {
+                var sql = "Select Project.Id,ProjectName,Description,Project.CreatedOn,Name As ManagerName from Project inner join  AppUser on Project.ManagerId=AppUser.Id where Project.IsActive=1 and Project.ManagerId=@Id";
+                var projectDetails = await _repository.InvokeQuery<ProjectResponse>(sql, new { Id });
+                if (projectDetails.Count() > 0)
+                {
+                    return new ServiceResult<IEnumerable<ProjectResponse>>(projectDetails, $"{projectDetails.Count()} record(s) found");
+                }
+                else
+                {
+                    return new ServiceResult<IEnumerable<ProjectResponse>>(null, "No record found", true);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult<IEnumerable<ProjectResponse>>(ex, ex.Message);
+
+            }
+        }
+
+
+        public async Task<ServiceResult<IEnumerable<ProjectResponse>>> GetProjectsByUser(int UserId)
+        {
+            try
+            {
+                var sql = "Select Project.Id,ProjectName,Description,Project.CreatedOn,Name As ManagerName from ProjectUser inner join  Project  on ProjectUser.ProjectId=Project.Id inner join AppUser on Project.ManagerId=AppUser.Id where ProjectUser.IsActive=1 and ProjectUser.UserId=@UserId";
+                var projectDetails = await _repository.InvokeQuery<ProjectResponse>(sql, new { UserId });
+                if (projectDetails.Count() > 0)
+                {
+                    return new ServiceResult<IEnumerable<ProjectResponse>>(projectDetails, $"{projectDetails.Count()} record(s) found");
+                }
+                else
+                {
+                    return new ServiceResult<IEnumerable<ProjectResponse>>(null, "No record found", true);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult<IEnumerable<ProjectResponse>>(ex, ex.Message);
+
+            }
+        }
+
+
     }
 }
