@@ -44,30 +44,6 @@ namespace API.Minimal_Routes.Application_Routes
             })
                 .RequireAuthorization()
               .WithTags("Project");
-
-            //GetManagedProjects
-
-            app.MapGet("api/getmanagedprojects", async ([FromServices] IProjectService projectService,int Id) =>
-            {
-                var response = await projectService.GetManagedProjects(Id);
-                var apiResponse = new ApiResponseModel(response.HasValidationError ? System.Net.HttpStatusCode.Conflict : System.Net.HttpStatusCode.OK, response.Message, response.Exception, response.Data);
-                return Results.Json(apiResponse);
-            })
-             .RequireAuthorization()
-             .WithTags("Project");
-
-
-            //GetUserProjects
-
-            app.MapGet("api/getprojectsbyuser", async ([FromServices] IProjectService projectService, int UserId) =>
-            {
-                var response = await projectService.GetProjectsByUser(UserId);
-                var apiResponse = new ApiResponseModel(response.HasValidationError ? System.Net.HttpStatusCode.Conflict : System.Net.HttpStatusCode.OK, response.Message, response.Exception, response.Data);
-                return Results.Json(apiResponse);
-            })
-             .RequireAuthorization()
-             .WithTags("Project");
-
         }
     }
 }

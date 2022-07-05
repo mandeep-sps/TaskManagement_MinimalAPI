@@ -14,8 +14,6 @@ namespace BusinessLogic.Interfaces
         Task<ServiceResult<bool>> UpdateProject(ProjectUpdateRequest projectUpdateRequest );
         Task<ServiceResult<bool>> DeleteProject(int Id);
         Task<ServiceResult<IEnumerable<ProjectResponse>>> GetAllProject();
-        Task<ServiceResult<IEnumerable<ProjectResponse>>> GetProjectsByUser(int UserId);
-        Task<ServiceResult<IEnumerable<ProjectResponse>>> GetManagedProjects(int Id);
 
 
     }
