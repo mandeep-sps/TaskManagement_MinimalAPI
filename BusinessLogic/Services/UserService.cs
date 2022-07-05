@@ -117,5 +117,29 @@ namespace BusinessLogic.Services
             }
         }
 
+
+        public async Task<ServiceResult<bool>> UpdateUser(RegisterUser registerUser)
+        {
+            try
+            {
+                var checkSql = "SELECT COUNT(0) FROM dbo.AppUser WHERE Email=@Email";
+                var count = await _repository.InvokeExecuteQuery(checkSql, new { registerUser.Email });
+                if (count > 0)
+                {
+                    return new ServiceResult<bool>(false, "User with this Email already exist", true);
+                }
+
+                var sql = "UPDATE dbo.AppUser SET NAME=@Name,EMAIL=@Email,UPDATEDON=GETDATE(),Password=@Password WHERE Id=@Id";
+                await _repository.InvokeExecute(sql, new { registerUser.Name, registerUser.Email, registerUser.Password, registerUser.Id });
+                return new ServiceResult<bool>(true, "User Updated", false);
+
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult<bool>(false, ex.Message, true);
+
+            }
+        }
+
     }
 }

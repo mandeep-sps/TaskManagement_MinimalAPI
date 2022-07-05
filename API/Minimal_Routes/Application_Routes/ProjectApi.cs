@@ -1,4 +1,5 @@
-﻿using BusinessLogic.Interfaces;
+﻿using BusinessLogic.Common;
+using BusinessLogic.Interfaces;
 using BusinessLogic.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,6 +33,17 @@ namespace API.Minimal_Routes.Application_Routes
             })
                 .RequireAuthorization()
                 .WithTags("Project");
+            //GetProjects
+
+
+            app.MapGet("api/getprojects", async ([FromServices] IProjectService projectService) =>
+            {
+                var response = await projectService.GetAllProject();
+                var apiResponse = new ApiResponseModel(response.HasValidationError ? System.Net.HttpStatusCode.Conflict : System.Net.HttpStatusCode.OK, response.Message, response.Exception, response.Data);
+                return Results.Json(apiResponse);
+            })
+                .RequireAuthorization()
+              .WithTags("Project");
         }
     }
 }

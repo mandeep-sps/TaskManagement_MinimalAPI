@@ -103,6 +103,28 @@ namespace BusinessLogic.Services
             }
         }
 
+        public async Task<ServiceResult<IEnumerable<ProjectResponse>>> GetAllProject()
+        {
+            try
+            {
+                var sql = "Select Project.Id,ProjectName,Description,Project.CreatedOn,Name As ManagerName from Project inner join AppUser on Project.ManagerId = AppUser.Id where Project.IsActive = 1";
+                var projectDetails = await _repository.InvokeQuery<ProjectResponse>(sql);
+                if (projectDetails.Count() > 0)
+                {
+                    return new ServiceResult<IEnumerable<ProjectResponse>>(projectDetails, $"{projectDetails.Count()} record(s) found");
+                }
+                else
+                {
+                    return new ServiceResult<IEnumerable<ProjectResponse>>(null, "No record found", true);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult<IEnumerable<ProjectResponse>>(ex, ex.Message);
+
+            }
+        }
 
     }
 }

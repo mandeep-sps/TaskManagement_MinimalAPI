@@ -13,6 +13,7 @@ namespace BusinessLogic.Interfaces
         Task<ServiceResult<bool>> AddProject(ProjectRequest projectRequest);
         Task<ServiceResult<bool>> UpdateProject(ProjectUpdateRequest projectUpdateRequest );
         Task<ServiceResult<bool>> DeleteProject(int Id);
+        Task<ServiceResult<IEnumerable<ProjectResponse>>> GetAllProject();
 
 
     }

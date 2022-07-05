@@ -11,6 +11,7 @@ namespace BusinessLogic.Interfaces
 
         Task<ServiceResult<LoginResponse>> LogIn(LoginRequest loginRequest);
         Task<ServiceResult<IEnumerable<GetUsers>>> GetUsers();
+        Task<ServiceResult<bool>> UpdateUser(RegisterUser registerUser);
 
     }
 }

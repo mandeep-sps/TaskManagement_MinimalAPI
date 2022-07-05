@@ -60,7 +60,17 @@ namespace API.Minimal_Routes.Application_Routes
             })
                 .RequireAuthorization()
                 .WithTags("Application User");
+
+
+            // Edit 
+            app.MapPut("api/updateuser", async ([FromServices] IUserService userService, RegisterUser registerUser) =>
+            {
+                return Results.Ok(await userService.UpdateUser(registerUser));
+            })
+                .RequireAuthorization()
+                .WithTags("Application User");
         }
+
 
 
     }

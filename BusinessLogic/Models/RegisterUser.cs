@@ -2,8 +2,11 @@
 {
     public class RegisterUser
     {
-       
-   
+        /// <summary>
+        /// Id
+        /// </summary>
+        public int Id { get; set; }
+
         /// <summary>
         /// Name
         /// </summary>

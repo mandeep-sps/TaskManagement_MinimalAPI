@@ -24,5 +24,16 @@ namespace BusinessLogic.Models
 
     }
 
+    public class ProjectResponse
+    {
+        public int Id { get; set; }
+        public string ProjectName { get; set; }
+        public string Description { get; set; }
+        public string ManagerName { get; set; }
+        public DateTime CreatedOn { get; set; }
+
+
+    }
+
 
 }
